@@ -1,4 +1,15 @@
-function init() {
+async function init() {
+  let rustApp = null;
+
+  try {
+    rustApp = await import("../pkg");
+  } catch (e) {
+    console.log(e);
+    return;
+  }
+
+  console.log(rustApp);
+
   const input = document.getElementById("upload");
   // const output = document.getElementById("new-img");
 
