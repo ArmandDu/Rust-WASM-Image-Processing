@@ -1,5 +1,5 @@
 async function init() {
-  let rustApp = null;
+  let rustApp;
 
   try {
     rustApp = await import("../pkg");
@@ -7,8 +7,6 @@ async function init() {
     console.log(e);
     return;
   }
-
-  console.log(rustApp);
 
   const input = document.getElementById("upload");
   // const output = document.getElementById("new-img");
@@ -18,7 +16,7 @@ async function init() {
   fileReader.onloadend = () => {
     const base64 = fileReader.result.split(",").slice(1).join(",");
 
-    console.log(base64);
+    rustApp.grayscale(base64);
   };
 
   function handleUpload() {
