@@ -9,14 +9,14 @@ async function init() {
   }
 
   const input = document.getElementById("upload");
-  // const output = document.getElementById("new-img");
+  const output = document.getElementById("new-img");
 
   const fileReader = new FileReader();
 
   fileReader.onloadend = () => {
     const base64 = fileReader.result.split(",").slice(1).join(",");
 
-    rustApp.grayscale(base64);
+    output.src = rustApp.grayscale(base64);
   };
 
   function handleUpload() {
