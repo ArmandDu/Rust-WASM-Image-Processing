@@ -1,7 +1,6 @@
 use base64::{decode, encode};
 use image::{load_from_memory, ImageOutputFormat};
 use wasm_bindgen::prelude::wasm_bindgen;
-use web_sys::console::log_1 as log;
 
 #[wasm_bindgen]
 pub fn grayscale(encoded: &str) -> String {
