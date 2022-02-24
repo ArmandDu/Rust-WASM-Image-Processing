@@ -1,7 +1,8 @@
-/target
-Cargo.lock
 
 **/node_modules/
+
+*.log
+dist/
 
 # User-specific stuff:
 **/.idea/workspace.xml

@@ -13,7 +13,7 @@ module.exports = {
       template: "./web/index.html",
     }),
     new WasmWebpackPlugin({
-      crateDirectory: path.resolve(__dirname, "."),
+      crateDirectory: path.resolve(__dirname, "./image-effects"),
     }),
   ],
   experiments: {
