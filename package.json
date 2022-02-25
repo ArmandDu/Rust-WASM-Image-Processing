@@ -5,7 +5,7 @@
   "author": "ArmandDu <mail@armanddu.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["web", "web2", "image-effects"],
+  "workspaces": ["packages/*"],
   "devDependencies": {
     "prettier": "^2.5.1"
   }

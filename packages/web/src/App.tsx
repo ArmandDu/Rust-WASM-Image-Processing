@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from "react";
 import "./App.css";
 
-import * as imageEffect from "image-effects";
+import * as imageEffect from "@my-wasm/image-effects";
 
 function App() {
   const [output, setOutput] = React.useState<string | null>(null);
@@ -16,11 +16,12 @@ function App() {
 
     fileReader.onloadend = () => {
       const result = fileReader.result?.toString();
-      const base64 = result?.split(",").slice(1).join(",");
 
-      if (base64) {
-        const result = imageEffect.grayscale(base64);
-        setOutput(result);
+      if (result) {
+        const base64 = result.split(",").slice(1).join(",");
+
+        const grayscale = imageEffect.grayscale(base64);
+        setOutput(grayscale);
       }
     };
   };
@@ -37,6 +38,7 @@ function App() {
             Need to do some basic image manipulation? Just upload your image
             below. We'll take care of the rest.
           </p>
+
           <label className="bg-pink-600	text-white w-full p-6 block cursor-pointer font-bold mb-4">
             <input
               type="file"
@@ -47,13 +49,21 @@ function App() {
             />
             Upload PNG Image
           </label>
-          {output && (
-            <img
-              src={output}
-              className="w-auto mx-auto"
-              alt={"Your uploaded PNG in grayscale!"}
-            />
-          )}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {output && (
+              <img
+                src={output}
+                className="w-auto mx-auto"
+                alt={"Your uploaded PNG in grayscale!"}
+              />
+            )}
+          </div>
         </div>
       </div>
     </>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "image-effects": "file:../image-effects/pkg",
+    "@my-wasm/image-effects": "link:../image-effects/pkg",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "web-vitals": "^2.1.0"
@@ -44,5 +44,10 @@
     "react-scripts": "5.0.0",
     "typescript": "^4.4.2",
     "wasm-loader": "^1.3.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@my-wasm/(.+)": "<rootDir>/__mocks__/my-wasm/$1"
+    }
   }
 }
