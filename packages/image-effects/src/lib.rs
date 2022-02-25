@@ -11,12 +11,15 @@ macro_rules! log {
 
 #[wasm_bindgen]
 pub fn grayscale(encoded: &str) -> String {
-    log!("Hello World!");
+    log!("Image Received!");
 
     let decoded = decode(encoded).unwrap();
+    log!("Image Decoded!");
     let image = load_from_memory(&decoded).unwrap();
+    log!("Image Loaded!");
 
     let grayscale = image.grayscale();
+    log!("Image Converted!");
 
     let mut buffer = vec![];
 
@@ -25,6 +28,7 @@ pub fn grayscale(encoded: &str) -> String {
         .unwrap();
 
     let encoded = encode(&buffer);
+    log!("Image Encoded!");
     let data_url = format!("data:image/png;base64,{}", encoded);
 
     data_url

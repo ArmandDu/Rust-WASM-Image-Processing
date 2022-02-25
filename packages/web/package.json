@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@my-wasm/image-effects": "link:../image-effects/pkg",
+    "comlink-loader": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "web-vitals": "^2.1.0"

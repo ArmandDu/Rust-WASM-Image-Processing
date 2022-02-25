@@ -1,29 +1,22 @@
 import React, { SyntheticEvent } from "react";
 import "./App.css";
 
-import * as imageEffect from "@my-wasm/image-effects";
+import * as imageEffects from "./image-effects.worker";
 
 function App() {
   const [output, setOutput] = React.useState<string | null>(null);
 
-  const handleUpload = (e: SyntheticEvent<HTMLInputElement>) => {
+  const handleUpload = async (e: SyntheticEvent<HTMLInputElement>) => {
     const file = e.currentTarget.files?.[0];
-    const fileReader = new FileReader();
 
-    if (file) {
-      fileReader.readAsDataURL(file);
+    if (!file) {
+      return;
     }
 
-    fileReader.onloadend = () => {
-      const result = fileReader.result?.toString();
-
-      if (result) {
-        const base64 = result.split(",").slice(1).join(",");
-
-        const grayscale = imageEffect.grayscale(base64);
-        setOutput(grayscale);
-      }
-    };
+    imageEffects
+      .grayscale(file)
+      .then(setOutput)
+      .catch(console.error.bind(null));
   };
 
   return (
