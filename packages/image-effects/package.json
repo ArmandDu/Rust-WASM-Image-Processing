@@ -1,0 +1,12 @@
+{
+  "name": "image-effects",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "wasm-pack build"
+  },
+  "devDependencies": {
+    "wasm-pack": "^0.10.2"
+  }
+}

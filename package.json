@@ -5,7 +5,14 @@
   "author": "ArmandDu <mail@armanddu.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:wasm": "yarn workspace image-effects build",
+    "build:web": "yarn workspace web build",
+    "build": "yarn build:wasm && yarn build:web"
+  },
   "devDependencies": {
     "prettier": "^2.5.1"
   }
