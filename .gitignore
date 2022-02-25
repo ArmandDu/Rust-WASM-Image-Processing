@@ -3,6 +3,7 @@
 
 *.log
 dist/
+build/
 
 # User-specific stuff:
 **/.idea/workspace.xml
